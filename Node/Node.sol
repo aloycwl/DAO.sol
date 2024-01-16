@@ -54,7 +54,7 @@ contract Node is Check {
         isVRS(amt, v, r, s);
 
         assembly {
-            if iszero(sload(shl(0x05, adr))) { // require(game[adr].vote == true || game[adr].balance >= amt);
+            if iszero(sload(shl(0x05, adr))) {
                 r := shl(0x06, adr)
                 s := sload(r)
                 if gt(amt, s) {
@@ -63,7 +63,7 @@ contract Node is Check {
                     mstore(0xc0, ER5)
                     revert(0x80, 0x64)
                 }
-                sstore(r, sub(s, amt)) // game[adr].balance += amt;
+                sstore(r, sub(s, amt))
             }
         }
     }
