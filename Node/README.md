@@ -47,3 +47,36 @@ event Vote (uint indexed, uint) usage:
 7 - this vote is failed
 
 ```
+
+Set the ERC721 address:
+```
+bytes32 ptr = 0xa9059cbb00000000000000000000000000000000000000000000000000000000;
+bytes32 b32;
+assembly {
+  b32 := 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+  // Replace this with the ERC721 address
+}
+Proxy(payable(address(this))).mem(ptr, b32);
+```
+
+Set the ERC20 address:
+```
+bytes32 ptr = 0x2fea05d400000000000000000000000000000000000000000000000000000000;
+bytes32 b32;
+assembly {
+  b32 := 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+  // Replace this with the ERC20 address
+}
+Proxy(payable(address(this))).mem(ptr, b32);
+```
+
+Set the numnber of sub-nodes:
+```
+bytes32 ptr = 0x00000007616d7420657272000000000000000000000000000000000000000000;
+bytes32 b32;
+assembly {
+  b32 := 10
+  // Replace this with the number of desired sub-node
+}
+Proxy(payable(address(this))).mem(ptr, b32);
+``` 
